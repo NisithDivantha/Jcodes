@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+
+
+class exeption{
+    public static void main(String args[]){
+
+        try (Scanner scan = new Scanner(System.in)) {
+            System.out.println("How old are you : ");
+            int age = scan.nextInt();
+
+            try{
+                checkAge(age);
+            }
+            catch(Exception e){
+                System.out.println("A problem occured"+e);
+            }
+        }
+
+    }
+
+    static void checkAge(int age)throws ageexception{
+        if(age < 18){
+            throw new ageexception("\n" + "You must be 18+ to sign up");
+        }
+        else{
+            System.out.println("You are signed up");
+        }
+    }
+}
+
+class ageexception extends Exception{
+    public ageexception(String massage){
+        super(massage);
+
+    }
+}
